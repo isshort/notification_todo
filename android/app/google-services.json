@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "446897243634",
+    "project_id": "notification-todo-de407",
+    "storage_bucket": "notification-todo-de407.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446897243634:android:2ab317f54a635dfbd3176b",
+        "android_client_info": {
+          "package_name": "com.example.verygoodcore.notification_todo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "446897243634-admm293toqgnda2t2bkhbsuqomjughkd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8rDkHbKDYOS2LbeElJ5XlWYZwshlKXpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "446897243634-admm293toqgnda2t2bkhbsuqomjughkd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
