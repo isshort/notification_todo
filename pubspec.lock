@@ -385,6 +385,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
+  rxdart:
+    dependency: "direct main"
+    description:
+      name: rxdart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.27.5"
   shelf:
     dependency: transitive
     description:
@@ -489,7 +496,7 @@ packages:
     source: hosted
     version: "0.4.16"
   timezone:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: timezone
       url: "https://pub.dartlang.org"

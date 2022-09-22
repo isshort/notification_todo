@@ -71,21 +71,64 @@ class _NotificationButtonState extends State<NotificationButton> {
   void initState() {
     super.initState();
     service = LocalNotificationService();
+    listenToNotification();
     service.initialize();
   }
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        service.showNotification(
-          id: 3,
-          title: 'This my title',
-          body: 'This is my bod',
-        );
-      },
-      child: const Text('show notification'),
+    return Column(
+      children: [
+        ElevatedButton(
+          key: GlobalKey(),
+          onPressed: () {
+            service.showNotification(
+              id: 3,
+              title: 'This my title',
+              body: 'This is my bod',
+            );
+          },
+          child: const Text('show notification'),
+        ),
+        TextButton(
+          onPressed: () {
+            service.showScheduleNotification(
+              id: 3,
+              title: 'This my title',
+              body: 'This is my bod',
+            );
+          },
+          child: const Text('show schedule notification'),
+        ),
+        TextButton(
+          key: GlobalKey(),
+          onPressed: () {
+            service.showNotificationPayload(
+              id: 3,
+              title: 'This my title',
+              body: 'This is my bod',
+              payload: 'your payload',
+            );
+          },
+          child: const Text('payload notification'),
+        ),
+      ],
     );
+  }
+
+  void listenToNotification() =>
+      service.onNotificationClicked.stream.listen(onNotificationListener);
+
+  void onNotificationListener(String? event) {
+    if (event != null && event.isNotEmpty) {
+      print('payload is $event');
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Page2(payload: event),
+        ),
+      );
+    }
   }
 }
 
@@ -97,5 +140,17 @@ class CounterText extends StatelessWidget {
     final theme = Theme.of(context);
     final count = context.select((CounterCubit cubit) => cubit.state);
     return Text('$count', style: theme.textTheme.headline1);
+  }
+}
+
+class Page2 extends StatelessWidget {
+  const Page2({super.key, required this.payload});
+  final String payload;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      key: GlobalKey(),
+      appBar: AppBar(title: Text('Page2 Title $payload')),
+    );
   }
 }
